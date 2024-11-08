@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Design Screenshots</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+            color: #333;
+            padding: 40px 20px;
+            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: transparent; 
+            padding-top: 30px;
+            box-shadow: none; 
+            z-index: 1000;
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            padding: 15px 20px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+        transform: scale(1.2); /* Scale up by 20% on hover */
+        /*color: #ff69b4; /* Change link color on hover */
+            display: inline-block; 
+        }
+
+        .container {
+            margin-left: 0; /* Remove margin to ensure it blends */
+            padding: 20px;
+        }
+
+        .logo {
+            margin-left: 1275px;
+            font-size: 2.5em;
+            padding: 15px;
+            font-family: 'Nunito', sans-serif;
+            margin-top: -30px;
+            position: relative;
+            display: flex;
+            margin-bottom: 15px;
+            text-shadow: 
+            2px 2px 0 #888,
+            4px 4px 0 #555,
+            6px 6px 0 #222;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .letter-l {
+            color: #d1d1e0;  
+            margin-right: -10px;
+        }
+
+        .letter-k {
+            color: #f4f4f9;  
+            margin-left: -1px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        header nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            color: #ff69b4;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #4a148c;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            margin-top: 150px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 100px;
+        }
+
+        .screenshot {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #ffffff;
+            max-height: fit-content;
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: 300px; /* Standardized height */
+            object-fit: cover;
+            display: block;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .screenshot:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .screenshot:hover img {
+            transform: scale(1.05);
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(74, 20, 140, 0.8);
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            text-transform: capitalize;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow: auto;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 80%;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #fff;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #f44336;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+         /* Navigation buttons */
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 2rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .modal-prev {
+            left: 10px;
+        }
+
+        .modal-next {
+            right: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <a href="index.html">
+                        <h1 class="logo">
+                            <span class="letter-l">L</span>
+                            <span class="letter-k">K</span>
+                        </h1>
+                    </a>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <h1>My Website Design Screenshots</h1>
+
+    <div class="gallery">
+        <div class="screenshot" onclick="openModal(0)">
+            <img src="websiteImg/login.png" alt="Login Page">
+            <div class="caption">Login Page</div>
+        </div>
+        <div class="screenshot" onclick="openModal(1)">
+            <img src="websiteImg/signup.png" alt="Signup Page">
+            <div class="caption">Signup Page</div>
+        </div>
+        <div class="screenshot" onclick="openModal(2)">
+            <img src="websiteImg/homepage.png" alt="Home Page">
+            <div class="caption">Home Page</div>
+        </div>
+        <div class="screenshot" onclick="openModal(3)">
+            <img src="websiteImg/promotions.png" alt="Promotion Section">
+            <div class="caption">Promotions Section</div>
+        </div>
+        <div class="screenshot" onclick="openModal(4)">
+            <img src="websiteImg/newsletter.png" alt="Newsletter Section">
+            <div class="caption">Newsletter Subscription Section</div>
+        </div>
+        <div class="screenshot" onclick="openModal(5)">
+            <img src="websiteImg/aboutpage.png" alt="About Page">
+            <div class="caption">About Page</div>
+        </div>
+        <div class="screenshot" onclick="openModal(6)">
+            <img src="websiteImg/contactus.png" alt="Contact Us Form">
+            <div class="caption">Contact us Form</div>
+        </div>
+        <div class="screenshot" onclick="openModal(7)">
+            <img src="websiteImg/contactinfo.png" alt="Contact Info">
+            <div class="caption">Contact Info Section</div>
+        </div>
+        <div class="screenshot" onclick="openModal(8)">
+            <img src="websiteImg/hoteldetails.png" alt="Hotel Details">
+            <div class="caption">Hotel details page</div>
+        </div>
+        <div class="screenshot" onclick="openModal(9)">
+            <img src="websiteImg/addhotel.png" alt="Contact Info">
+            <div class="caption">Add Hotel page</div>
+        </div>
+        <div class="screenshot" onclick="openModal(10)">
+            <img src="websiteImg/edithotel.png" alt="Contact Info">
+            <div class="caption">Edit Hotel page</div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modal-img" src="" alt="Enlarged Image">
+        </div>
+        <div class="modal-nav modal-prev" onclick="changeImage(-1)">&#10094;</div>
+        <div class="modal-nav modal-next" onclick="changeImage(1)">&#10095;</div>
+    </div>
+
+    <script>
+        var currentImageIndex = 0;
+        var images = [
+            "websiteImg/login.png",
+            "websiteImg/signup.png",
+            "websiteImg/homepage.png",
+            "websiteImg/promotions.png",
+            "websiteImg/newsletter.png",
+            "websiteImg/aboutpage.png",
+            "websiteImg/contactus.png",
+            "websiteImg/contactinfo.png",
+            "websiteImg/hoteldetails.png",
+            "websiteImg/addhotel.png",
+            "websiteImg/edithotel.png"
+        ];
+
+        function openModal(index) {
+            currentImageIndex = index;
+            event.preventDefault(); // Prevent any default behavior
+            document.getElementById('modal').style.display = "block";
+            document.getElementById('modal-img').src = images[currentImageIndex];
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = "none";
+        }
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
+            }
+            if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            }
+            document.getElementById('modal-img').src = images[currentImageIndex];
+        }
+    </script>
+
+</body>
+</html>
